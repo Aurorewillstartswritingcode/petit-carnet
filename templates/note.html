@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{FR}} · Petit Carnet</title>
+<meta name="description" content="{{FR}}：{{MEANING}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<script src="../../assets/carnet.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap"><a class="brand" href="../../">Petit Carnet<small>法文小筆記</small></a></div>
+</header>
+
+<main class="note wrap" data-category="{{CATEGORY}}">
+  <nav class="crumb"><a href="../../">← 回到目錄</a></nav>
+
+  <header class="note-head">
+    <h1 data-field="fr" lang="fr" data-speak>{{FR}}</h1>
+    <p class="ipa" data-field="ipa">{{IPA}}</p>
+    <p class="meaning" data-field="meaning">{{MEANING}}</p>
+  </header>
+
+  <section data-field="breakdown">
+    <h2>拆開來看</h2>
+    <dl class="breakdown">
+      <!-- 一個字一組 div，依字數複製 -->
+      <div><dt lang="fr">{{WORD}}</dt><dd>{{WORD_NOTE}}</dd></div>
+    </dl>
+  </section>
+
+  <section data-field="examples">
+    <h2>例句</h2>
+    <ul class="examples">
+      <!-- 1～3 句，依句數複製或刪除 -->
+      <li class="ex"><p class="ex-fr" lang="fr" data-speak>{{EX_FR}}</p><p class="ex-zh">{{EX_ZH}}</p></li>
+    </ul>
+  </section>
+
+  <section data-field="usage">
+    <h2>什麼時候用</h2>
+    <p>{{USAGE}}</p>
+  </section>
+
+  <!-- 選填：沒有相關說法就刪掉整個 section。站內已有的句子要寫成 <a href="../<slug>/" lang="fr">…</a> -->
+  <section data-field="related">
+    <h2>相關說法</h2>
+    <ul class="related">
+      <li>{{RELATED}}</li>
+    </ul>
+  </section>
+
+  <footer class="note-meta">
+    <span class="chip" data-cat="{{CATEGORY}}">{{CATEGORY_LABEL}}</span>
+    <span>加入於 <time datetime="{{DATE}}">{{DATE}}</time></span>
+  </footer>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>Petit Carnet · 一句一頁的法文小筆記</p></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,327 @@
+/* Petit Carnet — 唯一的樣式檔。色票與字體規則見 CLAUDE.md §6。 */
+
+:root {
+  --paper: #FBF7F0;
+  --card: #FFFDF9;
+  --ink: #1F2A44;
+  --ink-soft: #5A6378;
+  --line: #E6DCCB;
+  --accent: #A63D52;
+  --accent-soft: #F5E3E6;
+
+  --font-fr: "Cormorant Garamond", "Times New Roman", serif;
+  --font-zh: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-ipa: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 14px;
+  --wrap: 760px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16181F;
+    --card: #1E212B;
+    --ink: #ECE5D8;
+    --ink-soft: #A7A2B3;
+    --line: #323645;
+    --accent: #E68A9D;
+    --accent-soft: #3A2730;
+  }
+}
+
+/* ---------- 基礎 ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-zh);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+[lang="fr"] { font-family: var(--font-fr); }
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- 頁首／頁尾 ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-fr);
+  font-style: italic;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.brand small {
+  font-family: var(--font-zh);
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-left: 6px;
+}
+
+.site-footer {
+  margin-top: 64px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.site-footer .wrap { padding-top: 20px; padding-bottom: 40px; }
+
+.site-footer p { margin: 0 0 6px; }
+
+/* ---------- 首頁 ---------- */
+
+.hero { padding: 48px 0 24px; }
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-fr);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  line-height: 1.05;
+}
+
+.hero .tagline {
+  margin: 12px 0 0;
+  max-width: 34em;
+  color: var(--ink-soft);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.filter {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 4px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.filter:hover { border-color: var(--accent); }
+
+.filter[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 16px 18px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.card-fr {
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.card-zh { color: var(--ink-soft); }
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.empty { color: var(--ink-soft); }
+
+.about { margin-top: 48px; }
+
+.about h2,
+.note section h2 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.about ol { padding-left: 1.4em; }
+
+/* ---------- 分類標籤 ---------- */
+
+.chip {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ---------- 筆記頁 ---------- */
+
+.crumb { padding-top: 24px; font-size: 0.9rem; }
+
+.crumb a { text-decoration: none; }
+
+.note-head {
+  margin: 24px 0 36px;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--accent);
+}
+
+.note-head h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 10vw, 3.4rem);
+  line-height: 1.1;
+}
+
+.ipa {
+  margin: 10px 0 0;
+  font-family: var(--font-ipa);
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.meaning {
+  margin: 6px 0 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.note section { margin: 0 0 32px; }
+
+.breakdown { margin: 0; }
+
+.breakdown div {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, max-content) 1fr;
+  gap: 4px 16px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.breakdown dt {
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.breakdown dd { margin: 0; }
+
+.examples { margin: 0; padding: 0; list-style: none; }
+
+.ex {
+  padding: 10px 0 10px 16px;
+  border-left: 2px solid var(--line);
+  margin-bottom: 10px;
+}
+
+.ex p { margin: 0; }
+
+.ex-fr { font-size: 1.35rem; line-height: 1.4; }
+
+.ex-zh { color: var(--ink-soft); }
+
+.related { margin: 0; padding-left: 1.2em; }
+
+/* Cormorant 的字身比中文小，夾在中文句子裡的法文放大一點 */
+.related [lang="fr"] { font-size: 1.2em; font-weight: 600; }
+
+.note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- 「聽」按鈕（由 carnet.js 加上） ---------- */
+
+.speak {
+  font-family: var(--font-zh);
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+  vertical-align: middle;
+  padding: 5px 10px;
+  margin-left: 6px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.speak:hover { background: var(--accent-soft); }
+
+.speak[aria-pressed="true"] { background: var(--accent); color: var(--paper); }

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petit Carnet · 法文小筆記</title>
+<meta name="description" content="一句一頁的法文小筆記：怎麼念、什麼意思、怎麼拆、什麼時候用。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/carnet.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap"><a class="brand" href="./">Petit Carnet<small>法文小筆記</small></a></div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1 lang="fr">Petit Carnet</h1>
+    <p class="tagline">一句一頁的法文小筆記。每一頁都寫清楚：怎麼念、什麼意思、怎麼拆、什麼時候用。按「聽」可以聽法文發音。</p>
+  </section>
+
+  <ul class="filters" aria-label="依分類篩選">
+    <li><button class="filter" type="button" data-filter="all" aria-pressed="true">全部</button></li>
+    <li><button class="filter" type="button" data-filter="greeting" aria-pressed="false">問候道別</button></li>
+    <li><button class="filter" type="button" data-filter="conversation" aria-pressed="false">對話用語</button></li>
+    <li><button class="filter" type="button" data-filter="feeling" aria-pressed="false">心情感受</button></li>
+    <li><button class="filter" type="button" data-filter="tenderness" aria-pressed="false">溫柔話</button></li>
+  </ul>
+
+  <ul class="cards">
+<!-- NOTES:START -->
+<li><a class="card" href="notes/pas-de-souci/" data-category="conversation">
+  <span class="card-fr" lang="fr">Pas de souci</span>
+  <span class="card-zh">沒問題、沒關係</span>
+  <span class="card-meta"><span class="chip" data-cat="conversation">對話用語</span><time datetime="2026-11-13">2026-11-13</time></span>
+</a></li>
+<li><a class="card" href="notes/dis-moi/" data-category="conversation">
+  <span class="card-fr" lang="fr">Dis-moi</span>
+  <span class="card-zh">告訴我、說吧</span>
+  <span class="card-meta"><span class="chip" data-cat="conversation">對話用語</span><time datetime="2026-11-13">2026-11-13</time></span>
+</a></li>
+<li><a class="card" href="notes/je-suis-la/" data-category="tenderness">
+  <span class="card-fr" lang="fr">Je suis là</span>
+  <span class="card-zh">我在這裡、有我在</span>
+  <span class="card-meta"><span class="chip" data-cat="tenderness">溫柔話</span><time datetime="2026-11-13">2026-11-13</time></span>
+</a></li>
+<li><a class="card" href="notes/bonne-nuit/" data-category="greeting">
+  <span class="card-fr" lang="fr">Bonne nuit</span>
+  <span class="card-zh">晚安（睡前說）</span>
+  <span class="card-meta"><span class="chip" data-cat="greeting">問候道別</span><time datetime="2026-11-13">2026-11-13</time></span>
+</a></li>
+<li><a class="card" href="notes/a-demain/" data-category="greeting">
+  <span class="card-fr" lang="fr">À demain</span>
+  <span class="card-zh">明天見</span>
+  <span class="card-meta"><span class="chip" data-cat="greeting">問候道別</span><time datetime="2026-11-13">2026-11-13</time></span>
+</a></li>
+<li><a class="card" href="notes/cest-la-vie/" data-category="feeling">
+  <span class="card-fr" lang="fr">C'est la vie</span>
+  <span class="card-zh">這就是人生、人生嘛</span>
+  <span class="card-meta"><span class="chip" data-cat="feeling">心情感受</span><time datetime="2026-11-13">2026-11-13</time></span>
+</a></li>
+<!-- NOTES:END -->
+  </ul>
+  <p class="empty" hidden>這個分類還沒有筆記。</p>
+
+  <section class="about">
+    <h2>這本筆記怎麼長大</h2>
+    <p>網站照著 repo 裡的 <a href="https://github.com/Aurorewillstartswritingcode/petit-carnet/blob/main/CLAUDE.md">CLAUDE.md</a> 製作。每新增一句，AI 都依同一套規則：</p>
+    <ol>
+      <li>由法文原句算出網址名稱（slug），一句一個資料夾。</li>
+      <li>複製範本，填好發音、意思、拆解、例句和用法。</li>
+      <li>把新卡片加在這一頁最上面。</li>
+      <li>跑檢查腳本，確認沒有漏填的欄位或壞掉的連結。</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Petit Carnet · 一句一頁的法文小筆記</p>
+    <p>發音由瀏覽器內建語音播放，不同裝置聽起來會有些不同。</p>
+  </div>
+</footer>
+</body>
+</html>
