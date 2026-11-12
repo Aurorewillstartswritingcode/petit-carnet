@@ -170,6 +170,13 @@ def check_note(slug: str, path: Path) -> dict | None:
     for f in REQUIRED_FIELDS:
         if f not in fields:
             err(path, f"缺少必填區塊 data-field=\"{f}\"")
+    for f, node in fields.items():
+        h2 = node.find(lambda n: n.tag == "h2")
+        body = node.text()
+        if h2 is not None:
+            body = body.replace(h2.text(), "", 1)
+        if not body.strip():
+            err(path, f"區塊 data-field=\"{f}\" 只有標題、沒有內容")
 
     fr_node = fields.get("fr")
     fr = fr_node.text() if fr_node else ""
